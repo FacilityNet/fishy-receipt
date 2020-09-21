@@ -1,0 +1,17 @@
+# dependencies
+/node_modules
+
+# builds
+/dist
+
+# misc
+.DS_Store
+.npmrc
+.scannerwork
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env
+/.env

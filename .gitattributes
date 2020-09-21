@@ -1,0 +1,25 @@
+
+*          text=auto
+
+
+# Web files
+*.xml      text
+*.svg      text
+*.json     text
+*.html     text diff=html
+*.css      text diff=css
+*.scss     text diff=css
+*.js       text
+*.jsx      text
+*.ts       text
+*.tsx      text
+*.map      text
+
+
+# Images must not have line endings touched
+*.png      binary
+*.jpeg     binary
+*.jpg      binary
+*.bmp      binary
+*.gif      binary
+*.ico      binary
