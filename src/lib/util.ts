@@ -6,8 +6,8 @@ export function getRandomInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min)) + min
 }
 
-export function* repeat<TArgs extends any[], TResult>(n: number, f: Func<TArgs, TResult>, ...args: TArgs) {
+export function* repeat<TArgs extends any[], TResult>(n: number, f: Func<[number, ...TArgs], TResult>, ...args: TArgs) {
     for (let i = 0; i < n; i++) {
-        yield f(...args)
+        yield f(i, ...args)
     }
 }

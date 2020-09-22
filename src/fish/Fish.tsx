@@ -5,7 +5,7 @@ import "./fish.css"
 // This component is based on the following CodePen
 // See: https://codepen.io/alicepopoff/pen/JMLpNM
 
-function drawFish(onClick: React.MouseEventHandler<HTMLDivElement>) {
+function drawFish(key: number, onClick: React.MouseEventHandler<HTMLDivElement>) {
     const fishLayer = getRandomInt(1, 3)
     const fishContainerClass = `fish-container-${fishLayer}`
 
@@ -16,7 +16,7 @@ function drawFish(onClick: React.MouseEventHandler<HTMLDivElement>) {
     const animation = `swim ${getRandomInt(40, 80)}s  ${getRandomInt(0, 80)}s infinite`
 
     return (
-        <div className={`fish-container ${fishContainerClass}`} style={{ left, top, transform, animation }} onClick={onClick}>
+        <div key={key} className={`fish-container ${fishContainerClass}`} style={{ left, top, transform, animation }} onClick={onClick}>
             <div className={`fish fish-color`}>
                 <div className="fish-eyes"></div>
                 <div className="fish-tail"></div>
