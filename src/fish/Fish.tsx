@@ -82,7 +82,7 @@ export const Fish: React.FunctionComponent<Props> = ({ ocean, fish, word }) => {
             <div className="todays-word">
                 <p>{ wordOfTheDay }</p>
             </div>
-            { repeat(numberOfFish, drawFish, handleClick) }
+            { [...repeat(numberOfFish, drawFish, handleClick)] }
         </div>
     )
 }
