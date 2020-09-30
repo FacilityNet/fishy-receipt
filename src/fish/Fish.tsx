@@ -5,14 +5,14 @@ import "./fish.css"
 // This component is based on the following CodePen
 // See: https://codepen.io/alicepopoff/pen/JMLpNM
 
-function drawFish(key: number, onClick: React.MouseEventHandler<HTMLDivElement>) {
+function drawFish(key: number, scale: number, startOffset: string, onClick: React.MouseEventHandler<HTMLDivElement>) {
     const fishLayer = getRandomInt(1, 3)
     const fishContainerClass = `fish-container-${fishLayer}`
 
-    const left = `-30%`;
-    const top = `${getRandomInt(5, 90)}%`;
+    const left = startOffset
+    const top = `${getRandomInt(5, 90)}%`
 
-    let transform = `rotate(45deg) scale(${1 / getRandomInt(2, 6)})`
+    let transform = `rotate(45deg) scale(${scale * (1 / getRandomInt(2, 6))})`
     const animation = `swim ${getRandomInt(40, 80)}s  ${getRandomInt(0, 80)}s infinite`
 
     return (
@@ -30,19 +30,21 @@ export interface Props {
         widthInVw: number,
         heightInVh: number,
     }
-    fish?: {
+    fish: {
         count: number,
+        scale: number,
+        startOffset: string,
         color?: string,
         magicColor?: string,
     },
-    word?: {
+    word: {
         text: string,
         fontSize?: string,
         color?: string,
     }
 }
 
-export const Fish: React.FunctionComponent<Props> = ({ ocean, fish, word }) => {
+export const Fish: React.FunctionComponent<Props> = ({ ocean, fish = { count: 10, scale: 1, startOffset: "-10%" }, word = { text: "FISH" } }) => {
     function* generateStyles() {
         if (ocean !== undefined) {
             yield {
@@ -68,8 +70,6 @@ export const Fish: React.FunctionComponent<Props> = ({ ocean, fish, word }) => {
     }
 
     const oceanStyle = [...generateStyles()].reduce((acc, cur) => (Object.assign(acc, cur)), {})
-    const wordOfTheDay = word?.text ?? "Fish"
-    const numberOfFish = fish?.count ?? 70
 
     const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
         e.preventDefault()
@@ -80,9 +80,9 @@ export const Fish: React.FunctionComponent<Props> = ({ ocean, fish, word }) => {
     return (
         <div id="ocean" className="ocean" style={oceanStyle}>
             <div className="todays-word">
-                <p>{ wordOfTheDay }</p>
+                <p>{ word.text }</p>
             </div>
-            { [...repeat(numberOfFish, drawFish, handleClick)] }
+            { [...repeat(fish.count, drawFish, fish.scale, fish.startOffset, handleClick)] }
         </div>
     )
 }
