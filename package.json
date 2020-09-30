@@ -1,6 +1,6 @@
 {
     "name": "fishy-receipt",
-    "version": "1.0.0",
+    "version": "1.1.3",
     "description": "Control fish for your receipts",
     "main": "dist/cjs/index.js",
     "module": "dist/es/index.js",
@@ -15,7 +15,7 @@
         "rollup:doc": "rollup --config conf/rollup.showcase.config.js",
         "rollup:serve": "rollup --watch --config conf/rollup.serve.config.js",
         "start": "npm run clean && npm run rollup:serve",
-        "build": "npm run clean && npm run rollup:build && npm run rollup:doc"
+        "build": "npm run clean && npm run rollup:build"
     },
     "author": "Søren Boisen",
     "license": "MIT",

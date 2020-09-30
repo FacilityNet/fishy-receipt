@@ -31,7 +31,6 @@ export default [
             peerDepsExternal(),
             resolve(),
             typescript(),
-            dts(),
             css({ output: dist("index.css") }),
         ]
     },
