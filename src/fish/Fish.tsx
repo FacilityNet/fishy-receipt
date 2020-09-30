@@ -7,17 +7,19 @@ import "./fish.css"
 
 function drawFish(key: number, scale: number, startOffset: string, onClick: React.MouseEventHandler<HTMLDivElement>) {
     const fishLayer = getRandomInt(1, 3)
+    const layerScale = fishLayer / 2
     const fishContainerClass = `fish-container-${fishLayer}`
 
     const left = startOffset
     const top = `${getRandomInt(5, 90)}%`
+    const fishScale = 0.7 + (Math.random() * 0.3)
 
-    let transform = `rotate(45deg) scale(${scale * (1 / getRandomInt(2, 6))})`
+    let transform = `rotate(45deg) scale(${scale * layerScale * fishScale})`
     const animation = `swim ${getRandomInt(40, 80)}s  ${getRandomInt(0, 80)}s infinite`
 
     return (
-        <div key={key} className={`fish-container ${fishContainerClass}`} style={{ left, top, transform, animation }} onClick={onClick}>
-            <div className={`fish fish-color`}>
+        <div key={key} className={`fish-container ${fishContainerClass}`} style={{ left, top, animation }} onClick={onClick}>
+            <div className={`fish fish-color`} style={{ transform }}>
                 <div className="fish-eyes"></div>
                 <div className="fish-tail"></div>
             </div>
