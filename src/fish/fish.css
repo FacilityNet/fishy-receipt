@@ -4,7 +4,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: #64B5F6;
+    background: var(--ocean-background);
     overflow: hidden; /* fish must stay in the ocean */
 
     /* layout breaks down when smaller */
@@ -13,11 +13,13 @@
 
     --ocean-width-in-vw: 100;
     --ocean-height-in-vh: 100;
+    --ocean-background: #64B5F6;
     --todays-word-length: 4;
     --todays-word-font-size: min(var(--ocean-height-in-vh)*1vh, calc(var(--ocean-width-in-vw)*1vw / var(--todays-word-length)));
+    --todays-word-scale: 1;
     --todays-word-color: white;
-    --fish-color: salmon;  /* what else, haha */
-    --magic-fish-color: lightsalmon;
+    --fish-background: salmon;  /* what else, haha */
+    --magic-fish-background: lightsalmon;
 }
 
 .todays-word {
@@ -38,6 +40,7 @@
   color: var(--todays-word-color);
   margin: 0;
   padding: 0;
+  transform: scale(var(--todays-word-scale));
 }
 
 .fish-container {
@@ -98,10 +101,10 @@
 
 /* Fish colors */
 .fish-color, .fish-color .fish-tail:before, .fish-color .fish-tail:after {
-	background: var(--fish-color);
+	background: var(--fish-background);
 }
 .magic-fish-color, .magic-fish-color .fish-tail:before, .magic-fish-color .fish-tail:after {
-	background: var(--magic-fish-color);
+	background: var(--magic-fish-background);
 }
 
 @keyframes swim {
