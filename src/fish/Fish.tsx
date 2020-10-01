@@ -13,7 +13,7 @@ function drawFish(key: number, scale: number, startOffset: string, onClick?: Rea
     const fishContainerClass = `fish-container-${fishLayer}`
 
     const left = startOffset
-    const top = `${getRandomInt(5, 90)}%`
+    const top = first ? "50%" : `${getRandomInt(5, 90)}%`  // first fish near center
     const fishScale = 0.7 + (Math.random() * 0.3)
 
     const transform = `rotate(45deg) scale(${scale * layerScale * fishScale})`
