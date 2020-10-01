@@ -1,6 +1,6 @@
 {
     "name": "fishy-receipt",
-    "version": "1.0.0",
+    "version": "1.1.7",
     "description": "Control fish for your receipts",
     "main": "dist/cjs/index.js",
     "module": "dist/es/index.js",
