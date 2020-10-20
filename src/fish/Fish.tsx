@@ -8,12 +8,12 @@ import "./fish.css"
 function drawFish(key: number, scale: number, startOffset: string, onClick?: React.MouseEventHandler<HTMLDivElement>) {
     const first = key === 0
 
-    const fishLayer = getRandomInt(1, 3)
+    const fishLayer = first ? 2 : getRandomInt(1, 3)  // first fish in front layer
     const layerScale = fishLayer / 2
     const fishContainerClass = `fish-container-${fishLayer}`
 
     const left = startOffset
-    const top = first ? "50%" : `${getRandomInt(5, 90)}%`  // first fish near center
+    const top = first ? "50%" : `${getRandomInt(20, 80)}%`  // first fish near center
     const fishScale = 0.7 + (Math.random() * 0.3)
 
     const transform = `rotate(45deg) scale(${scale * layerScale * fishScale})`

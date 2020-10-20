@@ -108,8 +108,8 @@
 }
 
 @keyframes swim {
-	0% {left:-30%; transform: translate(0,20px);}
-	10% {left:20%; transform: translate(0,-20px);}
+	0% {left:-30%; transform: translate(0,10px);}
+	10% {left:20%; transform: translate(0,-10px);}
 	20% {left:40%; transform: translate(0,20px);}
 	30% {left:60%; transform: translate(0,-20px);}
 	40% {left:80%; transform: translate(0,20px);}
@@ -117,8 +117,8 @@
 	50% {left:130%; transform: translate(0,20px) scaleX(-1);}
 	60% {left:90%; transform: translate(0,-20px) scaleX(-1);}
 	70% {left:60%; transform: translate(0,10px) scaleX(-1);}
-	80% {left:20%; transform: translate(0,-50px) scaleX(-1);}
-	90% {left:-10%; transform: translate(0,50px) scaleX(-1);}
+	80% {left:20%; transform: translate(0,-40px) scaleX(-1);}
+	90% {left:-10%; transform: translate(0,40px) scaleX(-1);}
 	100% {left:-30%; transform: translate(0,0) scaleX(1);}
 }
 
