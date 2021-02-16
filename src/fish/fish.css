@@ -3,7 +3,8 @@
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
+    /* right: 0; */
+    width: calc(var(--ocean-width-in-vw)*1vw);
     background: var(--ocean-background);
     overflow: hidden; /* fish must stay in the ocean */
 
