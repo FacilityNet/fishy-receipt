@@ -1,0 +1,139 @@
+.ocean {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    /* right: 0; */
+    width: calc(var(--ocean-width-in-vw)*1vw);
+    background: var(--ocean-background);
+    overflow: hidden; /* fish must stay in the ocean */
+
+    /* layout breaks down when smaller */
+    min-height: 100px;
+    min-width: 100px;
+
+    --ocean-width-in-vw: 100;
+    --ocean-height-in-vh: 100;
+    --ocean-background: #64B5F6;
+    --todays-word-length: 4;
+    --todays-word-font-size: min(var(--ocean-height-in-vh)*1vh, calc(var(--ocean-width-in-vw)*1vw / var(--todays-word-length)));
+    --todays-word-scale: 1;
+    --todays-word-color: white;
+    --fish-background: salmon;  /* what else, haha */
+    --magic-fish-background: lightsalmon;
+}
+
+.todays-word {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  z-index: 50;
+}
+.todays-word p {
+  font-size: var(--todays-word-font-size);
+  color: var(--todays-word-color);
+  margin: 0;
+  padding: 0;
+  transform: scale(var(--todays-word-scale));
+}
+
+.fish-container {
+  position: absolute;
+	width: 100px;
+	height: 100px;
+}
+.fish {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background: #fff;
+	border-radius: 70px 10px / 70px 10px;
+}
+.fish-eyes {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 11%;
+    left: 57%;
+    background: #607D8B;
+    border-radius: 100%;
+}
+.fish-tail {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.fish-tail:before, .fish-tail:after {
+	content: "";
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	top: 100%;
+	left: -50%;
+	border-radius: 70% 0%;
+	background: gainsboro;
+	transform-origin: top right;
+}
+.fish-tail:before {
+    transform: rotate(-22deg);
+}
+.fish-tail:after {
+    transform: rotate(22deg);
+}
+.fish, .fish-tail:before, .fish-tail:after {
+	box-shadow: 8px 3px 17px 6px #0d47a130;
+}
+
+/* --- Fish variants --- */
+/* In front or behind text */
+.fish-container-1 {
+  z-index: 40;
+}
+.fish-container-2 {
+  z-index: 60;
+}
+
+/* Fish colors */
+.fish-color, .fish-color .fish-tail:before, .fish-color .fish-tail:after {
+	background: var(--fish-background);
+}
+.magic-fish-color, .magic-fish-color .fish-tail:before, .magic-fish-color .fish-tail:after {
+	background: var(--magic-fish-background);
+}
+
+@keyframes swim {
+	0% {left:-30%; transform: translate(0,10px);}
+	10% {left:20%; transform: translate(0,-10px);}
+	20% {left:40%; transform: translate(0,20px);}
+	30% {left:60%; transform: translate(0,-20px);}
+	40% {left:80%; transform: translate(0,20px);}
+	45% {left:100%; transform: translate(0,-20px);}
+	50% {left:130%; transform: translate(0,20px) scaleX(-1);}
+	60% {left:90%; transform: translate(0,-20px) scaleX(-1);}
+	70% {left:60%; transform: translate(0,10px) scaleX(-1);}
+	80% {left:20%; transform: translate(0,-40px) scaleX(-1);}
+	90% {left:-10%; transform: translate(0,40px) scaleX(-1);}
+	100% {left:-30%; transform: translate(0,0) scaleX(1);}
+}
+
+@keyframes swim-with-depth {
+	0% {left:-30%; transform: scale(0.4) translate(0,20px);}
+	10% {left:20%; transform: scale(0.6) translate(0,-20px);}
+	20% {left:40%; transform: scale(1) translate(0,20px);}
+	30% {left:60%; transform: scale(1.2) translate(0,-20px);}
+	40% {left:80%; transform: scale(0.9) translate(0,20px);}
+	45% {left:100%; transform: scale(0.7) translate(0,-20px);}
+	50% {left:130%; transform: scale(0.4) translate(0,20px) scaleX(-1);}
+	60% {left:90%; transform: scale(0.6) translate(0,-20px) scaleX(-1);}
+	70% {left:60%; transform: scale(1) translate(0,10px) scaleX(-1);}
+	80% {left:20%; transform: scale(0.6) translate(0,-50px) scaleX(-1);}
+	90% {left:-10%; transform: scale(0.4) translate(0,50px) scaleX(-1);}
+	100% {left:-30%; transform: scale(0.4) translate(0,0) scaleX(1);}
+}
